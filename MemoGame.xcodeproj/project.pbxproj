@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94E367BE289D3D93005DE541 /* MemoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E367BD289D3D93005DE541 /* MemoGame.swift */; };
+		94E367C0289D3FCA005DE541 /* EmojiMemoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E367BF289D3FCA005DE541 /* EmojiMemoGame.swift */; };
 		94E82FDA289AAA0A005CCD5D /* MemoGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E82FD9289AAA0A005CCD5D /* MemoGameApp.swift */; };
 		94E82FDC289AAA0A005CCD5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E82FDB289AAA0A005CCD5D /* ContentView.swift */; };
 		94E82FDE289AAA0A005CCD5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E82FDD289AAA0A005CCD5D /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		94E367BD289D3D93005DE541 /* MemoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoGame.swift; sourceTree = "<group>"; };
+		94E367BF289D3FCA005DE541 /* EmojiMemoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoGame.swift; sourceTree = "<group>"; };
 		94E82FD6289AAA0A005CCD5D /* MemoGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E82FD9289AAA0A005CCD5D /* MemoGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoGameApp.swift; sourceTree = "<group>"; };
 		94E82FDB289AAA0A005CCD5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				94E82FD9289AAA0A005CCD5D /* MemoGameApp.swift */,
+				94E367BD289D3D93005DE541 /* MemoGame.swift */,
+				94E367BF289D3FCA005DE541 /* EmojiMemoGame.swift */,
 				94E82FDB289AAA0A005CCD5D /* ContentView.swift */,
 				94E82FDD289AAA0A005CCD5D /* Assets.xcassets */,
 				94E82FDF289AAA0A005CCD5D /* Preview Content */,
@@ -139,6 +145,8 @@
 			files = (
 				94E82FDC289AAA0A005CCD5D /* ContentView.swift in Sources */,
 				94E82FDA289AAA0A005CCD5D /* MemoGameApp.swift in Sources */,
+				94E367C0289D3FCA005DE541 /* EmojiMemoGame.swift in Sources */,
+				94E367BE289D3D93005DE541 /* MemoGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
