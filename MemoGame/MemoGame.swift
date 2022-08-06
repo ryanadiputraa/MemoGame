@@ -8,9 +8,10 @@
 import Foundation
 
 struct MemoGame<CardContent> {
-    private(set) var cards: [Card]
+    private(set) var cards: Array<Card>
     
-    struct Card {
+    struct Card: Identifiable {
+        var id = UUID()
         var isFaceUp: Bool = false
         var isMatched: Bool = false
         var content: CardContent
@@ -25,7 +26,11 @@ struct MemoGame<CardContent> {
         }
     }
     
-    func choose(_ card: Card) {
-        
+    mutating func choose(_ selectedCard: Card) {
+        for (index, card) in cards.enumerated() {
+            if selectedCard.id == card.id {
+                cards[index].isFaceUp.toggle()
+            }
+        }
     }
 }

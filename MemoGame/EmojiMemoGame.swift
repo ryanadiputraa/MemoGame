@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmojiMemoGame {
+class EmojiMemoGame: ObservableObject {
     static let emojis =
         ["✈️", "🖥", "🧑🏻‍🏫", "☠️", "🤡", "👺", "🤖", "🧚‍♀️", "🧶", "👑", "🐼", "🐸", "🍔", "🍟"]
     
@@ -17,9 +17,15 @@ class EmojiMemoGame {
         }
     }
     
-    private var model: MemoGame<String> = createMemoGame()
+    @Published private var model: MemoGame<String> = createMemoGame()
         
-    var cards: [MemoGame<String>.Card] {
-        return model.cards
+    var cards: Array<MemoGame<String>.Card> {
+        model.cards
+    }
+    
+    // MARK: - Intent(s)
+    
+    func choose(_ card: MemoGame<String>.Card) {
+        model.choose(card)
     }
 }
