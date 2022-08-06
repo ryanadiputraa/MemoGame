@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct MemoGame<CardContent> {
+struct MemoGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card>
+    
+    private var indexOfCurrentMatchingCard: Int?
     
     struct Card: Identifiable {
         var id = UUID()
@@ -26,11 +28,24 @@ struct MemoGame<CardContent> {
         }
     }
     
-    mutating func choose(_ selectedCard: Card) {
-        for (index, card) in cards.enumerated() {
-            if selectedCard.id == card.id {
-                cards[index].isFaceUp.toggle()
+    mutating func choose(_ card: Card) {
+        if let choosenCardIndex = cards.firstIndex(where: { $0.id == card.id }),
+           !cards[choosenCardIndex].isFaceUp,
+           !cards[choosenCardIndex].isMatched
+        {
+            if let matchingCardIndex = indexOfCurrentMatchingCard {
+                if cards[matchingCardIndex].content == cards[choosenCardIndex].content {
+                    cards[matchingCardIndex].isMatched = true
+                    cards[choosenCardIndex].isMatched = true
+                }
+                indexOfCurrentMatchingCard = nil
+            } else {
+                for index in cards.indices {
+                    cards[index].isFaceUp = false
+                }
+                indexOfCurrentMatchingCard = choosenCardIndex
             }
+            cards[choosenCardIndex].isFaceUp.toggle()
         }
     }
 }
