@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct MemoGameApp: App {
-    let game = EmojiMemoGame()
+    private let game = EmojiMemoGame()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: game)
+            EmojiMemoGameView(game: game)
         }
     }
 }

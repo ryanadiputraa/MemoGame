@@ -10,17 +10,20 @@ import Foundation
 struct MemoGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card>
     
-    private var indexOfCurrentMatchingCard: Int?
+    private var indexOfCurrentMatchingCard: Int? {
+        get { cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly }
+        set { cards.indices.forEach { cards[$0].isFaceUp = $0 == newValue } }
+    }
     
     struct Card: Identifiable {
-        var id = UUID()
-        var isFaceUp: Bool = false
-        var isMatched: Bool = false
-        var content: CardContent
+        let id = UUID()
+        var isFaceUp = false
+        var isMatched = false
+        let content: CardContent
     }
     
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
-        cards = Array<Card>()
+        cards = []
         for index in 0..<numberOfPairsOfCards {
             let content = createCardContent(index)
             cards.append(Card(content: content))
@@ -38,14 +41,16 @@ struct MemoGame<CardContent> where CardContent: Equatable {
                     cards[matchingCardIndex].isMatched = true
                     cards[choosenCardIndex].isMatched = true
                 }
-                indexOfCurrentMatchingCard = nil
+                cards[choosenCardIndex].isFaceUp = true
             } else {
-                for index in cards.indices {
-                    cards[index].isFaceUp = false
-                }
                 indexOfCurrentMatchingCard = choosenCardIndex
             }
-            cards[choosenCardIndex].isFaceUp.toggle()
         }
+    }
+}
+
+extension Array {
+    var oneAndOnly: Element? {
+        count == 1 ? first : nil
     }
 }

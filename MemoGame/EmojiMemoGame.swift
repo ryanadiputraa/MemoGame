@@ -8,24 +8,26 @@
 import Foundation
 
 class EmojiMemoGame: ObservableObject {
-    static let emojis =
+    typealias Card = MemoGame<String>.Card
+    
+    private static let emojis =
         ["✈️", "🖥", "🧑🏻‍🏫", "☠️", "🤡", "👺", "🤖", "🧚‍♀️", "🧶", "👑", "🐼", "🐸", "🍔", "🍟"]
     
-    static func createMemoGame() -> MemoGame<String> {
+    private static func createMemoGame() -> MemoGame<String> {
         MemoGame<String>(numberOfPairsOfCards: 4) { index in
             emojis[index]
         }
     }
     
-    @Published private var model: MemoGame<String> = createMemoGame()
+    @Published private var model = createMemoGame()
         
-    var cards: Array<MemoGame<String>.Card> {
+    var cards: Array<Card> {
         model.cards
     }
     
     // MARK: - Intent(s)
     
-    func choose(_ card: MemoGame<String>.Card) {
+    func choose(_ card: Card) {
         model.choose(card)
     }
 }
