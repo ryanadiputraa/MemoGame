@@ -11,10 +11,13 @@ class EmojiMemoGame: ObservableObject {
     typealias Card = MemoGame<String>.Card
     
     private static let emojis =
-        ["✈️", "🖥", "🧑🏻‍🏫", "☠️", "🤡", "👺", "🤖", "🧚‍♀️", "🧶", "👑", "🐼", "🐸", "🍔", "🍟"]
+        [
+            "✈️", "🖥", "🧑🏻‍🏫", "☠️", "🤡", "👺", "🤖", "🧚‍♀️", "🧶", "👑", "🐼", "🐸", "🍔", "🍟",
+            "👑", "🗓", "📁", "🫥", "😈", "🤖", "💄", "👥", "👮🏻"
+        ]
     
     private static func createMemoGame() -> MemoGame<String> {
-        MemoGame<String>(numberOfPairsOfCards: 4) { index in
+        MemoGame<String>(numberOfPairsOfCards: 10) { index in
             emojis[index]
         }
     }

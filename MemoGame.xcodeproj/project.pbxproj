@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9467327D28A6958B00E7AC61 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467327C28A6958B00E7AC61 /* AspectVGrid.swift */; };
 		94E367BE289D3D93005DE541 /* MemoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E367BD289D3D93005DE541 /* MemoGame.swift */; };
 		94E367C0289D3FCA005DE541 /* EmojiMemoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E367BF289D3FCA005DE541 /* EmojiMemoGame.swift */; };
 		94E82FDA289AAA0A005CCD5D /* MemoGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E82FD9289AAA0A005CCD5D /* MemoGameApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9467327C28A6958B00E7AC61 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		94E367BD289D3D93005DE541 /* MemoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoGame.swift; sourceTree = "<group>"; };
 		94E367BF289D3FCA005DE541 /* EmojiMemoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoGame.swift; sourceTree = "<group>"; };
 		94E82FD6289AAA0A005CCD5D /* MemoGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,7 @@
 				94E82FD9289AAA0A005CCD5D /* MemoGameApp.swift */,
 				94E367BD289D3D93005DE541 /* MemoGame.swift */,
 				94E367BF289D3FCA005DE541 /* EmojiMemoGame.swift */,
+				9467327C28A6958B00E7AC61 /* AspectVGrid.swift */,
 				94E82FDB289AAA0A005CCD5D /* EmojiMemoGameView.swift */,
 				94E82FDD289AAA0A005CCD5D /* Assets.xcassets */,
 				94E82FDF289AAA0A005CCD5D /* Preview Content */,
@@ -146,6 +149,7 @@
 				94E82FDC289AAA0A005CCD5D /* EmojiMemoGameView.swift in Sources */,
 				94E82FDA289AAA0A005CCD5D /* MemoGameApp.swift in Sources */,
 				94E367C0289D3FCA005DE541 /* EmojiMemoGame.swift in Sources */,
+				9467327D28A6958B00E7AC61 /* AspectVGrid.swift in Sources */,
 				94E367BE289D3D93005DE541 /* MemoGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
