@@ -27,6 +27,7 @@ struct CardView: View {
     let card: EmojiMemoGame.Card
     
     private struct DrawingConstants {
+        static let fontSize: CGFloat = 32
         static let fontScale: CGFloat = 0.7
     }
     
@@ -37,14 +38,17 @@ struct CardView: View {
                     .padding(5)
                     .opacity(0.5)
                 Text(card.content)
-                    .font(font(in: geometry.size))
+                    .rotationEffect(Angle(degrees: card.isMatched ? 360 : 0))
+                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
+                    .font(.system(size: DrawingConstants.fontSize))
+                    .scaleEffect(scale(thatFits: geometry.size))
             }
-            .cardify(isFaceUp: card.isFaceUp)
+            .cardify(isFaceUp: card.isFaceUp, isMatchedUp: card.isMatched)
         }
     }
     
-    private func font(in size: CGSize) -> Font {
-        Font.system(size: min(size.width, size.height) * DrawingConstants.fontScale)
+    private func scale(thatFits size: CGSize) -> CGFloat {
+        min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.fontScale)
     }
 }
 

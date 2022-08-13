@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Cardify: ViewModifier {
     var isFaceUp: Bool
+    var isMatchedUp: Bool
     
     private struct DrawingConstants {
         static let cornerRadius: CGFloat = 10
@@ -21,16 +22,18 @@ struct Cardify: ViewModifier {
             if isFaceUp {
                 shape.foregroundColor(.white)
                 shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
-                content
+            } else if isMatchedUp {
+                shape.opacity(0)
             } else {
                 shape.fill()
             }
+            content.opacity(isFaceUp ? 1 : 0)
         }
     }
 }
 
 extension View {
-    func cardify(isFaceUp: Bool) -> some View {
-        self.modifier(Cardify(isFaceUp: isFaceUp))
+    func cardify(isFaceUp: Bool, isMatchedUp: Bool) -> some View {
+        self.modifier(Cardify(isFaceUp: isFaceUp, isMatchedUp: isMatchedUp))
     }
 }
