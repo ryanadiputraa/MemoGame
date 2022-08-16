@@ -11,6 +11,14 @@ struct EmojiMemoGameView: View {
     @ObservedObject var game: EmojiMemoGame
     
     var body: some View {
+        VStack {
+            gameBody
+            shuffleButton
+        }
+        .padding()
+    }
+    
+    var gameBody: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in
             CardView(card: card)
                 .padding(4)
@@ -19,7 +27,14 @@ struct EmojiMemoGameView: View {
                 }
         }
         .foregroundColor(.red)
-        .padding(.horizontal)
+    }
+    
+    var shuffleButton: some View {
+        Button("Shuffle") {
+            withAnimation {
+                game.shuffle()
+            }
+        }
     }
 }
 
@@ -55,7 +70,7 @@ struct CardView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let game = EmojiMemoGame()
-        game.choose(game.cards.first!)
+//        game.choose(game.cards.first!)
         return EmojiMemoGameView(game: game)
             .preferredColorScheme(.light)
             .previewInterfaceOrientation(.portrait)

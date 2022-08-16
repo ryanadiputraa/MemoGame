@@ -29,6 +29,7 @@ struct MemoGame<CardContent> where CardContent: Equatable {
             cards.append(Card(content: content))
             cards.append(Card( content: content))
         }
+        cards.shuffle()
     }
     
     mutating func choose(_ card: Card) {
@@ -46,6 +47,10 @@ struct MemoGame<CardContent> where CardContent: Equatable {
                 indexOfCurrentMatchingCard = choosenCardIndex
             }
         }
+    }
+    
+    mutating func shuffle() {
+        cards.shuffle()
     }
 }
 
